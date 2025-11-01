@@ -1,4 +1,5 @@
 import streamlit as st
+from annotated_text import annotated_text
 
 # hardcoded demo users
 USERS = {
@@ -24,3 +25,4 @@ if st.button("Login"):
 if "logged_in" in st.session_state and st.session_state["logged_in"]:
     st.write(f"Welcome {st.session_state['user']}")
     st.write("Now you can see the dashboard here...")
+
