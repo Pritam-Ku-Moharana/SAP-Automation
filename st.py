@@ -1,4 +1,5 @@
 import streamlit as st
 
 st.title("Hello from Streamlit!")
-st.write("This app is running from Anaconda Python")
+st.write("This app is running from Anaconda Command Line")
+
