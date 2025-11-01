@@ -1,6 +1,3 @@
 streamlit
 streamlit-annotated-text
-pandas
-numpy
-opencv-python
-easyocr
+
