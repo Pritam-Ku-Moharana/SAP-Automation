@@ -1,3 +1,4 @@
 streamlit
-streamlit-annotated-text
+st-annotated-text
+
 
