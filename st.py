@@ -1,8 +1,8 @@
 import streamlit as st
 
 USERS = {
-    "pritam": "12345",
-    "admin": "29102005"
+    "Pritam": "12345",
+    "Admin": "29102005"
 }
 
 if "logged_in" not in st.session_state:
@@ -28,7 +28,7 @@ def login():
 def main_page():
     st.title("Enter the details")
 
-    reporting_year = st.number_input("Reporting Year", min_value=2000, max_value=2100, step=1, format="%d")
+    reporting_year = st.number_input("Reporting Year", min_value=2025, max_value=2125, step=1, format="%d")
     st.write("Reporting Year:", reporting_year)
         
     reporting_period_frm = st.number_input("Reporting Period From", min_value=1, max_value=12, step=1, format="%d")
@@ -37,7 +37,7 @@ def main_page():
     reporting_period_to = st.number_input("Reporting Period To", min_value=1, max_value=12, step=1, format="%d")
     st.write("Reporting Period To:",reporting_period_to)
 
-    comparison_year = st.number_input("Comparison Year", min_value=2000, max_value=2100, step=1, format="%d")
+    comparison_year = st.number_input("Comparison Year", min_value=2025, max_value=2125, step=1, format="%d")
     st.write("Comparison Year",comparison_year)
 
     comaprison_period_from = st.number_input("Comparison Per. From", min_value=1, max_value=12, step=1, format="%d")
@@ -45,6 +45,26 @@ def main_page():
     
     comparison_period_to = st.number_input("Comparison Period To", min_value=1, max_value=12, step=1, format="%d")
     st.write("Comparison Period To",comparison_period_to)
+
+    missing = []
+
+    if not reporting_year:
+        missing.append("reporting_year")
+    if not reporting_period_frm:
+        missing.append("reporting_period_frm")
+    if not reporting_period_to:
+        missing.append("reporting_period_to")   
+    if not comparison_year:
+        missing.append("reporting_year")
+    if not comaprison_period_from:
+        missing.append("reporting_period_frm")
+    if not comparison_period_to:
+        missing.append("reporting_period_to")
+
+    if missing:
+        st.error(f"Please fill mandatory fields: {', '.join(missing)}")
+    else:
+        st.success("Form submitted successfully ✅")
 
 
 
@@ -68,4 +88,5 @@ footer {visibility:hidden;}
 header {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 
