@@ -10,7 +10,7 @@ if "logged_in" not in st.session_state:
 if "submitted" not in st.session_state:
     st.session_state.submitted = False
 if "run" not in st.session_state:
-    st.session_state.submitted = False
+    st.session_state.run = False
 
 # -------------------------------- LOGIN PAGE --------------------------------
 def login():
@@ -91,6 +91,7 @@ footer {visibility:hidden;}
 header {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
