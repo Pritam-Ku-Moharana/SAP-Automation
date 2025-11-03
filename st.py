@@ -9,6 +9,8 @@ if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 if "submitted" not in st.session_state:
     st.session_state.submitted = False
+if "run" not in st.session_state:
+    st.session_state.submitted = False
 
 # -------------------------------- LOGIN PAGE --------------------------------
 def login():
@@ -59,6 +61,15 @@ def main_page():
         st.write("All the details doesn't saved yet!!!")
 
 
+    if st.button("Run SAP Automation"):
+        st.session_state.run = True
+
+    if st.session_state.run:
+        st.write("SAP Automation has started successfully!✅")
+    else:
+        st.write("")
+
+
 
 
     if st.button("Logout"):
@@ -80,6 +91,7 @@ footer {visibility:hidden;}
 header {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
