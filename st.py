@@ -1,5 +1,5 @@
 import streamlit as st
-import time
+
 
 USERS = {
     "pritam": "12345",
@@ -29,7 +29,7 @@ def main_page():
 if st.session_state.logged_in:
     st.write(f"Welcome {st.session_state.user}")
     st.write("Now you can see the dashboard here...")
-    time.sleep(2)
+    
     main_page()
     if st.button("Logout"):
         st.session_state.logged_in = False
@@ -44,3 +44,4 @@ footer {visibility:hidden;}
 header {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
+
