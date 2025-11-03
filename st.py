@@ -46,25 +46,10 @@ def main_page():
     comparison_period_to = st.number_input("Comparison Period To", min_value=1, max_value=12, step=1, format="%d")
     st.write("Comparison Period To",comparison_period_to)
 
-    missing = []
-
-    if not reporting_year:
-        missing.append("reporting_year")
-    if not reporting_period_frm:
-        missing.append("reporting_period_frm")
-    if not reporting_period_to:
-        missing.append("reporting_period_to")   
-    if not comparison_year:
-        missing.append("reporting_year")
-    if not comaprison_period_from:
-        missing.append("reporting_period_frm")
-    if not comparison_period_to:
-        missing.append("reporting_period_to")
-
-    if missing:
-        st.error(f"Please fill mandatory fields: {', '.join(missing)}")
-    else:
-        st.success("Form submitted successfully ✅")
+   if st.button("Submit"):
+       st.write("Details has been submitted Successful ✅")
+   else:
+       st.write("All the details doesn't saved yet!!!")
 
 
 
@@ -88,5 +73,6 @@ footer {visibility:hidden;}
 header {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 
 
