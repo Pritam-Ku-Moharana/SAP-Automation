@@ -7,6 +7,8 @@ USERS = {
 
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
+if "submitted" not in st.session_state:
+    st.session_state.submitted = False
 
 # -------------------------------- LOGIN PAGE --------------------------------
 def login():
@@ -46,8 +48,7 @@ def main_page():
     comparison_period_to = st.number_input("Comparison Period To", min_value=1, max_value=12, step=1, format="%d")
     st.write("Comparison Period To",comparison_period_to)
 
-    if "submitted" not in st.session_state:
-        st.session_state.submitted = False
+    
 
     if st.button("Submit"):
         st.session_state.submitted = True
@@ -79,6 +80,7 @@ footer {visibility:hidden;}
 header {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
