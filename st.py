@@ -1,10 +1,11 @@
 import streamlit as st
 from annotated_text import annotated_text
+import time
 
 # hardcoded demo users
 USERS = {
     "pritam": "12345",
-    "ayush": "1"
+    "admin": "29102005"
 }
 
 if "logged_in" not in st.session_state:
@@ -25,31 +26,26 @@ def login():
         else:
             st.error("Invalid username or password ❌")
 ##############################################################################################################################
+def main_page():
+    st.title("Enter the details")
 
+    reporting_period_frm = st.number_input("Reporting Period frm")
+
+
+
+##############################################################################################################################
 # if logged in → show next page
 if "logged_in" in st.session_state and st.session_state["logged_in"]:
     st.write(f"Welcome {st.session_state['user']}")
     st.write("Now you can see the dashboard here...")
 
+    time.sleep(4)
+    main_page()
     if st.button("Logout"):
         st.session_state.logged_in = False
 else:
     login()
-    
-pages = st.sidebar.selectbox("Pages", ["Home","Attendance","Logs"])
-
-if pages == "Home":
-    st.write("This is home page")
-
-elif pages == "Attendance":
-    st.write("attendance page here")
-
-elif pages == "Logs":
-    st.write("logs page here")
-
-
-
-
+ 
 # REMOVE STREAMLIT STYLE (menu, footer, header)
 hide_style = """
 <style>
@@ -59,6 +55,7 @@ header {visibility: hidden;}
 </style>
 """
 st.markdown(hide_style, unsafe_allow_html=True)
+
 
 
 
