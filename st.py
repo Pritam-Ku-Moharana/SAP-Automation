@@ -46,10 +46,16 @@ def main_page():
     comparison_period_to = st.number_input("Comparison Period To", min_value=1, max_value=12, step=1, format="%d")
     st.write("Comparison Period To",comparison_period_to)
 
-   if st.button("Submit"):
-       st.write("Details has been submitted Successful ✅")
-   else:
-       st.write("All the details doesn't saved yet!!!")
+    if "submitted" not in st.session_state:
+        st.session_state.submitted = False
+
+    if st.button("Submit"):
+        st.session_state.submitted = True
+    
+    if st.session_state.submitted:
+        st.write("Details has been submitted Successful ✅")
+    else:
+        st.write("All the details doesn't saved yet!!!")
 
 
 
@@ -73,6 +79,7 @@ footer {visibility:hidden;}
 header {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
