@@ -1,7 +1,7 @@
 import streamlit as st
 
 USERS = {
-    "Pritam": "12345",
+    "Pritam": "29102005",
     "Admin": "29102005"
 }
 
@@ -91,6 +91,7 @@ footer {visibility:hidden;}
 header {visibility:hidden;}
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
